@@ -1,0 +1,32 @@
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> list=new ArrayList<>();
+        for(int i=left;i<=right;i++)
+        {
+            boolean found=true;
+            if(i<=9)
+            {
+                list.add(i);
+            }
+            else
+            {
+                int temp=i;
+                while(temp>0)
+                {
+                int digit=temp%10;
+                if(digit==0 || i%digit!=0)
+                {
+                    found=false;
+                    break;
+                }
+                temp=temp/10;
+                }
+            }
+            if(found && i>=10)
+            {
+                list.add(i);
+            }
+        }
+        return list;
+    }
+}
